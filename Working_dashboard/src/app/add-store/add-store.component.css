@@ -1,0 +1,21 @@
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+      .form-img img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+     }
+     .upload-image{
+      border-radius: 5px solid blue;
+     }
+    .circle{
+      height:200px;
+      width: 200px;
+      background-color: white;
+      align-items: center;
+      justify-content: center;
+      border:10px solid rgb(177, 156, 156);
+      border-radius: 50%;
+     }

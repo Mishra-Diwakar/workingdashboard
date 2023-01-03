@@ -1,0 +1,20 @@
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+.add-item-cls{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  @media (max-width:767px){
+    .nav_small .footer,.footer{
+      padding-left: 0;
+      position: static !important;
+    }
+    .add-item-cls{
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  }

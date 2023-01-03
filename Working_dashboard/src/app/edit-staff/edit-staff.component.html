@@ -1,0 +1,151 @@
+<app-header></app-header>
+
+<!-- this is the part of header -->
+
+<div class="header-bg">
+
+    <div class="page_breadc">
+        <div class="container-fluid">
+            <div class="page-heading">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-breadcrumb">
+                            <h1>Manage Staff</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 justify-content-md-end d-md-flex">
+                        <div class="breadcrumb_nav">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-home"></i>
+                                    <a class="parent-item" routerLink="/dashboard">Home</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li class="active">
+                                    Edit-staff
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!-- from here the form of adding staff -->
+<div class="container">
+
+    <form [formGroup]="editForm" (ngSubmit)="editStaff()">
+        <div class="form-group row mt-2">
+            <label for="inputName" class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Staff Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Staff name" formControlName="name" [ngClass]="{'is-invalid':submitted && s['name'].errors}">
+              <div *ngIf="submitted && s['name'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['name'].errors['required']">Name is required</div>
+                <div *ngIf="submitted && s['name'].errors['pattern']">Invalid name</div>
+
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Contact</label>
+              <input type="number" class="form-control"  placeholder="contact" formControlName="contact" [ngClass]="{'is-invalid':submitted && s['contact'].errors}">
+              <div *ngIf="submitted && s['contact'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['contact'].errors['required']">Contact is required</div>
+                <div *ngIf="submitted && s['contact'].errors['pattern']">Invalid contact</div>
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+       
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Email</label>
+              <input type="email" class="form-control"  placeholder="Email" formControlName="email" [ngClass]="{'is-invalid':submitted && s['email'].errors}">
+              <div *ngIf="submitted && s['email'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['email'].errors['required']">Email is required</div>
+                <div *ngIf="submitted && s['email'].errors['pattern']">Invalid email</div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Password</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':submitted && s['password'].errors}">        
+              <div *ngIf="submitted && s['password'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['password'].errors['required']">Password is required</div>
+                <div *ngIf="submitted && s['password'].errors['maxlength']">Maximum 8 character</div>
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        
+        <div class="form-group row">
+            <label  class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Date of Joining</label>
+              <input type="date" class="form-control" formControlName="doj" [ngClass]="{'is-invalid':submitted && s['doj'].errors}" >            
+              <div *ngIf="submitted && s['doj'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['doj'].errors['required']">Date is required</div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Gender</label>
+              <select class="form-control" formControlName="gender" [ngClass]="{'is-invalid':submitted && s['gender'].errors}" >
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+              </select>
+              <div *ngIf="submitted && s['gender'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['gender'].errors['required']">Gender is required</div>    
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+       
+        <div class="form-group row">
+            <label  class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+              <label for="" class="d-block">salary</label>
+              <input type="number" class="form-control"  placeholder="Salary" formControlName="salary" [ngClass]="{'is-invalid':submitted && s['salary'].errors}" >            
+              <div *ngIf="submitted && s['salary'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['salary'].errors['required']">Salary is required</div>
+                <div *ngIf="submitted && s['salary'].errors['pattern']">Invalid salary</div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <label for="" class="d-block">Is Active</label>
+              <select class="form-control" formControlName="active" [ngClass]="{'is-invalid':submitted && s['active'].errors}" >
+                  <option value="">Active/Inactive</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>                   
+              </select>
+              <div *ngIf="submitted && s['active'].errors" class="invalid-feedback">
+                <div *ngIf="submitted && s['active'].errors['required']">Gender is required</div>    
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-10">
+              <label for="" class="d-block">Address</label>
+                <textarea class="form-control" formControlName="address" [ngClass]="{'is-invalid':submitted && s['address'].errors}"></textarea>
+                <div *ngIf="submitted && s['address'].errors" class="invalid-feedback">
+                    <div *ngIf="submitted && s['address'].errors['required']">Address is required</div>
+                    <div *ngIf="submitted && s['address'].errors['pattern']">Invalid address</div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary btn-block text-white" (click)="updateAlert()">Update</button>
+            </div>
+            <label class="col-sm-4"></label>
+        </div>
+      </form>
+</div>
+<app-footer></app-footer>

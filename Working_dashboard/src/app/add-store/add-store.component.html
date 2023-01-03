@@ -1,0 +1,190 @@
+<app-header></app-header>
+
+<!-- this is the part of header -->
+
+<div class="header-bg">
+
+    <div class="page_breadc">
+        <div class="container-fluid">
+            <div class="page-heading">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-breadcrumb">
+                            <h1>Manage Store</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 justify-content-md-end d-md-flex">
+                        <div class="breadcrumb_nav">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-home"></i>
+                                    <a class="parent-item" routerLink="/dashboard">Home</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li class="active">
+                                    Add store
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!-- from here the form of adding staff -->
+<div class="container">
+
+    <form [formGroup]="addStore" (ngSubmit)="addStoreFormSubmit()">
+
+        <div class="form-img text-center align-items-center justify-content-center mt-3 mb-3">
+            <img class="circle" *ngIf="status==0" [hidden]="false">
+            <img [src]="imageSrc" *ngIf="imageSrc && status==1" alt="not uploaded" [hidden]="false">
+        </div>
+        <div class="text-center mb-4">
+            <label for="img" class="upload-image" style="border-radius: 5px; border:1px solid rgb(58, 227, 125); background-color: rgb(72, 142, 118); color:white; cursor:pointer; padding:2px;">Upload image</label>
+            <input type="file" (change)="onFileChanged($event)" id="img" style="display:none;" formControlName="pic" accept=".png, .jpg, .jpeg" [ngClass]="{'is-invalid':Submitted && s['pic'].errors}">
+            <!-- <label for="img" class="upload-image" style="border-radius: 5px; border:1px solid rgb(58, 227, 125); background-color: rgb(72, 142, 118); color:white; cursor:pointer; padding:2px;">Upload image</label> -->
+                <div *ngIf="Submitted && s['pic'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['pic'].errors['required']">pic required</div>
+                </div>
+                
+        </div>
+        <div class="form-group row mt-2">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+                <label for="" class="d-block">Store name</label>
+                <input type="text" class="form-control" formControlName="storename" [ngClass]="{'is-invalid':Submitted && s['storename'].errors}">
+                <div *ngIf="Submitted && s['storename'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['storename'].errors['required']">Store Name is required</div>
+                    <div *ngIf="Submitted && s['storename'].errors['pattern']">Invalid store name</div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label for="" class="d-block">Owner name</label>
+                <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid':Submitted && s['name'].errors}">
+                <div *ngIf="Submitted && s['name'].errors" class="invalid-feedback">
+                        <div *ngIf="Submitted && s['name'].errors['required']">Name is required</div>
+                        <div *ngIf="Submitted && s['name'].errors['pattern']">Invalid name</div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <div class="form-group row">
+            <label  class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+             <label for="" class="d-block">Contact</label>
+              <input type="number" class="form-control" formControlName="contact" [ngClass]="{'is-invalid': Submitted && s['contact'].errors}">
+                <div *ngIf="Submitted && s['contact'].errors" class="invalid-feedback">
+                    <div *ngIf="s['contact'].errors['required']" class="text-danger">Contact is required</div>
+                    <div *ngIf="s['contact'].errors['pattern']" class="text-danger">Invalid contact</div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label for="" class="d-block">Email</label>
+                <input type="email" class="form-control"  formControlName="email" [ngClass]="{'is-invalid': Submitted && s['email'].errors}">
+                <div *ngIf="Submitted && s['email'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['email'].errors['required']">Email required</div>
+                    <div *ngIf="Submitted && s['email'].errors['pattern']">Invalid Email</div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+       
+        <div class="form-group row mt-2">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+                <label for="" class="d-block">From</label>
+                <select class="form-control" class="form-control" formControlName="openDayFrom" [ngClass]="{'is-invalid': Submitted && s['openDayFrom'].errors}">
+                    <option value="">Opening Day From</option>
+                    <option value="sun">Sun</option>
+                    <option value="mon">Mon</option>
+                    <option value="tue">Tue</option>
+                    <option value="wed">Wed</option>
+                    <option value="thu">Thu</option>
+                    <option value="fri">Fri</option>
+                    <option value="sat">Sat</option>
+                </select>
+                <div *ngIf="Submitted && s['openDayFrom'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['openDayFrom'].errors['required']">Required Field</div>
+                  
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label for="" class="d-block">To</label>
+                <select class="form-control" formControlName="closeDayTo" [ngClass]="{'is-invalid': Submitted && s['closeDayTo'].errors}">
+                    <option value="">Closing Day To</option>
+                    <option value="sun">Sun</option>
+                    <option value="mon">Mon</option>
+                    <option value="tue">Tue</option>
+                    <option value="wed">Wed</option>
+                    <option value="thu">Thu</option>
+                    <option value="fri">Fri</option>
+                    <option value="sat">Sat</option>
+                </select>
+                <div *ngIf="Submitted && s['closeDayTo'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['closeDayTo'].errors['required']">Required field</div>                 
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-5">
+                <label for="" class="d-block">Starting Time</label>
+                <input type="time" value="10:00" class="form-control" formControlName="openingTime" [ngClass]="{'is-invalid': Submitted && s['openingTime'].errors}">  
+                <div *ngIf="Submitted && s['openingTime'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['openingTime'].errors['required']">Required field</div>  
+                </div> 
+            </div>
+            <div class="col-sm-5">
+                <label for="" class="d-block">Closing Time</label>
+                <input type="time" class="form-control" formControlName="closingTime" [ngClass]="{'is-invalid':Submitted && s['closingTime'].errors}">    
+                <div *ngIf="Submitted && s['closingTime'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['closingTime'].errors['required']">Required Field</div>                 
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        
+       
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <label for="" class="d-block">Address</label>
+                <textarea class="form-control" formControlName="address" [ngClass]="{'is-invalid': Submitted && s['address'].errors}"></textarea>
+                <div *ngIf="Submitted && s['address'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['address'].errors['required']">Address required</div>
+                    <div *ngIf="Submitted && s['address'].errors['pattern']">Please enter correctly.</div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <!-- adding for image uploading -->
+
+        <!-- <div class="form-group row">
+            <label  class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-10">
+                <label for="" class="d-block">Upload Image</label>
+                <input type="file" formControlName="pic" accept=".png, .jpg, .jpeg" (change)="onFileChanged($event)" [ngClass]="{'is-invalid': Submitted && s['pic'].errors}">
+                <div *ngIf="Submitted && s['pic'].errors" class="invalid-feedback">
+                    <div *ngIf="Submitted && s['pic'].errors['required']">pic required</div>
+                </div>
+            </div>
+           <div class="col-sm-1"></div>
+        </div> -->
+
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary btn-block text-white">Add</button>
+            </div>
+            <label class="col-sm-4"></label>
+        </div>
+      </form>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,13 @@
+.import-link li a,.address li a{
+    color:rgb(112, 101, 86);
+    font-size: 1rem;
+}
+.import-link li a:hover,.address li a:hover{
+    color:white;
+}
+.address li p{
+    color:rgb(215, 191, 157);
+}
+.single-footer-widget p{
+    color:rgb(112, 101, 86);
+}

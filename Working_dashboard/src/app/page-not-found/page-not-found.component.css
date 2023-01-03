@@ -1,0 +1,24 @@
+
+
+.error-box{
+    background-color: #dee2e6;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.error-box p{
+    color: #9d9b9b;
+    font-size: 100px;
+}
+
+.error-box h5{
+    display: block;
+}

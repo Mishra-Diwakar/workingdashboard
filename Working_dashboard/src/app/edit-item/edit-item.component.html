@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="header-bg">
+    <div class="page_breadc">
+        <div class="container-fluid">
+            <div class="page-heading">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-breadcrumb">
+                            <h1>Inventory</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 justify-content-md-end d-md-flex">
+                        <div class="breadcrumb_nav">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-home"></i>
+                                    <a class="parent-item" routerLink="/dashboard">Home</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li class="active">
+                                    Manage item
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <form [formGroup]="editInventoryForm" (ngSubmit)="editInventorySubmit()">
+        <div class="form-group row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <label>Item brand</label>
+                <input type="text" class="form-control" formControlName="itemBrand" [ngClass]="{'is-invalid': submitted && f['itemBrand'].errors}">
+                <div *ngIf="submitted && f['itemBrand'].errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f['itemBrand'].errors['required']">Brand required</div>
+                    <div *ngIf="submitted && f['itemBrand'].errors['pattern']">Invalid Brand Name</div>   
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label>Item name</label>
+                <input type="text" class="form-control" formControlName="itemName" [ngClass]="{'is-invalid':submitted && f['itemName'].errors}">
+                <div *ngIf="submitted && f['itemName'].errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f['itemName'].errors['required']">Item name required</div>
+                    <div *ngIf="submitted && f['itemName'].errors['pattern']">Item name invalid</div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <label>Quantity</label>
+                <input type="number" class="form-control" formControlName="quantity" [ngClass]="{'is-invalid': submitted && f['quantity'].errors}">
+                <div *ngIf="submitted && f['quantity'].errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f['quantity'].errors['required']">Quantity required</div>
+                    <div *ngIf="submitted && f['quantity'].errors['pattern']">Invalid entry</div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <label>Description</label>
+                <input type="text" class="form-control" formControlName="description" [ngClass]="{'is-invalid': submitted && f['description'].errors}">
+                <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f['description'].errors['required']">Desccription required</div>
+                    <div *ngIf="submitted && f['description'].errors['pattern']">Invalid Description</div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary btn-block text-white">Update</button>
+            </div>
+            <label class="col-sm-4"></label>
+        </div>
+    </form>
+</div>
+<!-- Footer -->
+<footer class="footer ptb-20 add-item-cls">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="copy_right">
+                    <p>
+                        2022 © Developed By
+                        <span style="color:rgb(6, 129, 88); cursor:pointer;">Diwakar</span>
+                    </p>
+                </div>
+                <!-- <a id="back-to-top" href="#" style="display: inline;"> <i class="ion-android-arrow-up"></i> </a> -->
+            </div>
+        </div>
+    </div>
+</footer>

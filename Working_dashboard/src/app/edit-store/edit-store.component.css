@@ -1,0 +1,13 @@
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+      
+  .form-img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+ }
+ .upload-image{
+  border-radius: 5px solid blue;
+ }

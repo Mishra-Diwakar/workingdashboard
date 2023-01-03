@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<div class="header-bg">
+    <div class="page_breadc">
+        <div class="container-fluid">
+            <div class="page-heading">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-breadcrumb">
+                            <h1>Manage Booking</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 justify-content-md-end d-md-flex">
+                        <div class="breadcrumb_nav">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-home"></i>
+                                    <a class="parent-item" routerLink="/dashboard">Home</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li class="active">
+                                    Manage booking
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content_right -->
+<div class="container-fluid">
+
+				
+
+    <!--main contents start-->
+    <main class="content_wrapper">
+        
+        <div class="container-fluid">
+            <!-- state start-->
+            <div class="row">
+                <div class=" col-sm-12">
+                    <div class="card card-shadow mb-4">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Booking List
+                                <span class="float-right">Total booking: {{totalBooking}}</span>
+                                <div class="form-inline">
+                                    <select class="form-control Paginater" [(ngModel)]="items">
+                                        <option></option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="250">250</option>
+                                        <option value="500">500</option>
+                                    </select>
+                                    <input type="button" class="form-control itemButton" (click)="submitItems(items)" value="Find">
+                                    <input class="form-control search-text" type="text" [(ngModel)]="searchText" autocomplete="off" placeholder="  Search Booking ">                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                            <a class="btn btn-primary float-right plus_icon" routerLink="/booking"><span class="icon">+ Booking</span></a>
+                            <table class="table table-bordered table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Booking Id</th>
+                                        <th>Name</th>
+                                        <th>Contact</th>
+                                        <th>Booking Date</th>
+                                        <th>Timing</th>
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr *ngFor="let item of bookingList |search:searchText| paginate: { itemsPerPage: perPageData, currentPage: page, totalItems:totalLength }">
+                                        <td>{{item.bookingId}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.contact}}</td>
+                                        <td>{{item.bookingDate}}</td>
+                                        <td>{{item.time}}</td>
+                                        <td>{{item.address}}</td>
+                                        <td>{{item.status}}</td>
+                                        <td>
+                                            <i class="fa-solid fa fa-edit edit" (click)="editBooking(item)" routerLink="/edit-booking" style="color: blue;" >&nbsp;</i>&nbsp;&nbsp;
+                                            <i class="fa-solid fa fa-trash delete" (click)="deleteBooking(item.bookingId)" style="color: red;">&nbsp;</i>
+                                           
+                                        </td>
+                                    </tr>
+                                    
+                                  
+                                </tbody>
+                                
+                            </table>
+                           </div>
+                        </div>
+                        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+            <!-- state end-->
+        </div>
+
+    </main>
+    <!--main contents end-->
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,102 @@
+<app-header></app-header>
+
+<div class="header-bg">
+
+<div class="page_breadc">
+    <div class="container-fluid">
+        <div class="page-heading">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6">
+                    <div class="page-breadcrumb">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+                <div class="col-md-6 justify-content-md-end d-md-flex">
+                    <div class="breadcrumb_nav">
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a class="parent-item" routerLink="#">Home</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="active">
+                                Dashboard
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container-fluid">
+
+    <div class="content_wrapper">
+        <div class="container-fluid">
+
+            <section class="chart_section">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="card border-0 text-light card-shadow">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="homepage_single">
+
+                                            <span class="bg-info text-center wb-icon-box bg_shedo_light"> <i
+                                                    class="fa fa-book f24" aria-hidden="true"></i> </span>
+                                            <div class="homepage_fl_right">
+                                                <h4 class="mt-0">Total Booking</h4>
+                                                <h3> <span>{{totalBooking}}</span></h3>
+                                            </div>
+                                            <p>
+                                                Today Booking <span class="fl_right text-success">{{todayBooking}} </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="card border-0 text-light card-shadow">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="homepage_single">
+
+                                            <span
+                                                class="bg-warning text-center wb-icon-box bg_shedo_light_yellow"><i
+                                                    class="fa fa-user f24" aria-hidden="true"></i></span>
+                                            <div class="homepage_fl_right">
+                                                <h4 class="mt-0">Total Staff</h4>
+                                                <h3><span>{{totalStaff}}</span></h3>
+                                            </div>
+                                            <p>
+                                                Running Staff <span class="fl_right text-success">{{runningStaff}}<i
+                                                         aria-hidden="true"></i></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+        </div>
+    </div>
+
+</div>
+<!-- Content_right_End -->
+
+<app-footer></app-footer>
+

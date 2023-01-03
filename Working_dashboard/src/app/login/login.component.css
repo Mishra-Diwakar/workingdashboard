@@ -1,0 +1,9 @@
+body{
+    height: 100vh;
+}
+a{
+    color:blue;
+}
+social-login-content .psw.hover{
+    color:red;
+}

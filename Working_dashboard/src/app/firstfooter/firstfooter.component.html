@@ -1,0 +1,79 @@
+<footer class="footer-area pb-70 pt-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer-widget">
+                    <a routerLink=""><img src="assets/assets/img/logo.png" alt=""></a>
+                    <p class="pt-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem sequi architecto provident nisi sit maxime iste?</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer-widget">
+                    <h3>Our services</h3>
+                    <ul class="import-link">
+                        <li>
+                            <a routerLink="/pool-renovation" (click)="onClick('home')">Pool Renovation</a>
+                        </li>
+                        <li>
+                            <a routerLink="/pool-cleaning" (click)="onClick('home')">Pool Cleaning</a>
+                        </li>
+                        <li>
+                            <a routerLink="/pool-maintanance" (click)="onClick('home')">Pool Maintanance</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer-widget">
+                    <h3>Quick link</h3>
+
+                    <ul class="import-link">
+                        
+                        <li>
+                            <a routerLink="" (click)="onClick('home')">Home</a>
+                        </li>
+                        <li>
+                            <a routerLink="/about" (click)="onClick('home')">About </a>
+                        </li>
+                        <li>
+                            <a routerLink="/service-sweem" (click)="onClick('home')">Services</a>
+                        </li>
+                        <li>
+                            <a routerLink="/contact" (click)="onClick('home')">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="single-footer-widget">
+                    <h3>Contact us</h3>
+
+                    <ul class="address">
+                        <li class="location">
+                            <i class="bx bxs-location-plus"></i>
+                            <p>{{address}}</p>
+                        </li>
+                        <li>
+                            <i class="bx bxs-envelope"></i>
+                            <a href="mailto:info@swimming.com"><span>{{email}}</span></a>
+                        </li>
+                        <li>
+                            <i class="bx bxs-phone-call"></i>
+                            <a href="tel:+91-9966338568">+91-{{contact}}</a>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+        </div>
+    </div>
+ </footer>
+
+ <div class="copy-right-area">
+    <div class="container">
+        <p>
+             <i class="bx bx-copyright"></i> Copyright 2022 All Right Reserved.
+        </p>
+    </div>
+</div>
+
