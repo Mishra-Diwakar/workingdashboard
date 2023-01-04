@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="col d-flex justify-content-center">
+        <div class="card w-50" id="pdfData">
+            <div class="card-header">
+                <h2 class="text-center">Receipt of booking for {{name}}</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Booking id</div>
+                    <div class="col">{{id}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Name</div>
+                    <div class="col">{{name}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Contact</div>
+                    <div class="col">{{contact}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Booking Date</div>
+                    <div class="col">{{bookingDate}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Time</div>
+                    <div class="col">{{time}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Address</div>
+                    <div class="col">{{address}}</div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <hr>
+            <div class="card-body">
+                <div class="card-header text-center">
+                    <h2>Receipt for office use of {{name}}</h2>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Booking id</div>
+                    <div class="col">{{id}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Name</div>
+                    <div class="col">{{name}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Contact</div>
+                    <div class="col">{{contact}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Booking Date</div>
+                    <div class="col">{{bookingDate}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Time</div>
+                    <div class="col">{{time}}</div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Address</div>
+                    <div class="col">{{address}}</div>
+                    <div class="col"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn-primary download" (click)="openPDF()">Download PDF</button>
+    </div>
+</div>

@@ -91,14 +91,11 @@
                                         <td>{{item.status}}</td>
                                         <td>
                                             <i class="fa-solid fa fa-edit edit" (click)="editBooking(item)" routerLink="/edit-booking" style="color: blue;" >&nbsp;</i>&nbsp;&nbsp;
-                                            <i class="fa-solid fa fa-trash delete" (click)="deleteBooking(item.bookingId)" style="color: red;">&nbsp;</i>
-                                           
+                                            <i class="fa-solid fa fa-trash delete" (click)="deleteBooking(item.bookingId)" style="color: red;">&nbsp;</i>&nbsp;&nbsp;
+                                            <i class="fa fa-eye download" aria-hidden="true" (click)="downloadBooking(item)" title="Show preview" routerLink="/generatePdf" style="color: rgb(216, 136, 220);"></i>
                                         </td>
                                     </tr>
-                                    
-                                  
                                 </tbody>
-                                
                             </table>
                            </div>
                         </div>

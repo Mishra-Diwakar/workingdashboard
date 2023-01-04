@@ -1,4 +1,4 @@
-.edit,.delete{
+.edit,.delete, .download{
     cursor: pointer;
 }
 .search-text {

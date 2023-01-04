@@ -47,7 +47,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { RegisterComponent } from './register/register.component';
 import { BookingFirstComponent } from './booking-first/booking-first.component';
 import { ServicesSweemComponent } from './services-sweem/services-sweem.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component'; 
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { GeneratePdfComponent } from './generate-pdf/generate-pdf.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     RegisterComponent,
     BookingFirstComponent,
     ServicesSweemComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    GeneratePdfComponent
   ],
   imports: [
     BrowserModule,

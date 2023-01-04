@@ -188,6 +188,12 @@ bookinList(){
   return this.http.get(this.url);
 }
 
+// download pdf
+downloadBooking(data:any){
+  this.url="http://localhost:9191/export-to-pdf";
+  return this.http.post(this.url,data, {responseType: 'blob'});
+}
+
 //today booking 
 todayBooking(){
   this.url="http://localhost:9191/booking-list/today";

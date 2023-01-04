@@ -28,6 +28,7 @@ import { TeamComponent } from './team/team.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BookingFirstComponent } from './booking-first/booking-first.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { GeneratePdfComponent } from './generate-pdf/generate-pdf.component';
 
 
 
@@ -58,6 +59,7 @@ const routes: Routes = [
   {path: 'manage-booking', component:ManageBookingComponent},
   {path: 'edit-booking', component:EditBookingComponent},
   {path: 'forget-password' , component:ForgetPasswordComponent},
+  {path: 'generatePdf', component:GeneratePdfComponent},
   {path:'**',component:PageNotFoundComponent }
   
 ];
