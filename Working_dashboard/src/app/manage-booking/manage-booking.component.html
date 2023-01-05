@@ -58,15 +58,18 @@
                                         <option value="250">250</option>
                                         <option value="500">500</option>
                                     </select>
+                                    
                                     <input type="button" class="form-control itemButton" (click)="submitItems(items)" value="Find">
+                                    
                                     <input class="form-control search-text" type="text" [(ngModel)]="searchText" autocomplete="off" placeholder="  Search Booking ">                                    
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
                            <div class="table-responsive">
+                            <a class="excel_icon" (click)="exportexcel()"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
                             <a class="btn btn-primary float-right plus_icon" routerLink="/booking"><span class="icon">+ Booking</span></a>
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped" id="excel-table">
                                 <thead class="table-dark">
                                     <tr>
                                         <th>Booking Id</th>

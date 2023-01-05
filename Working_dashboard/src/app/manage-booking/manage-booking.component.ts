@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../Services/api.service';
 import Swal from 'sweetalert2';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-manage-booking',
@@ -16,6 +17,7 @@ export class ManageBookingComponent implements OnInit {
   page: number = 1;
   perPageData: number = 5;
   items: any;
+  fileName= 'ExcelSheet.xlsx';
   constructor(private api: ApiService, private router: Router) {
     //check user logged in or not
     if (!this.api.isUserLoggedIn()) { this.router.navigate(['']); }
@@ -79,12 +81,32 @@ export class ManageBookingComponent implements OnInit {
     this.perPageData = items;
   }
   downloadBooking(data: any) {
-    // console.log(JSON.stringify(data));
-    // this.api.downloadBooking(data).subscribe(res=>{
-    //   console.log(res);
-    // });
+  //   // console.log(JSON.stringify(data));
+  //   // this.api.downloadBooking(data).subscribe(res=>{
+  //   //   console.log(res);
+  //   // });
     this.api.bookingDataForEdit = data;
     this.router.navigate(['/generatePdf']);
 
+  }
+  // //for download excel
+  // downloadExcel(){
+  
+  // }
+  exportexcel(): void
+  {
+    // /* pass here the table id */
+    // let element = document.getElementById('excel-table');
+   
+    // const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    // /* generate workbook and add the worksheet */
+    // const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    // XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    // /* save to file */  
+    // XLSX.writeFile(wb, this.fileName);
+    this.api.exportAsExcelFile(this.bookingList, 'sample');
+ 
   }
 }

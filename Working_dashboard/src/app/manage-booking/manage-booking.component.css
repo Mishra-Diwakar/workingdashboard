@@ -19,6 +19,12 @@
     border-radius: 10px;
   }
 
+  .excel_icon{
+    color:rgb(214, 193, 193);
+    font-size: 18px;
+    cursor:pointer;
+  }
+
   .plus_icon .icon{
     font-size: 18px;
     color:rgb(7, 0, 0);

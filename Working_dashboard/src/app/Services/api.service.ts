@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
-import { identifierName } from '@angular/compiler';
-
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +13,7 @@ storeDataForEdit:any=[];
 inventoryDataForEdit:any=[];
 bookingDataForEdit:any=[];
 settingData:any=[];
+
   constructor(private http: HttpClient) { }
   validateAdmin(data:any){
     this.url = "http://localhost:9191/login"  
@@ -226,5 +227,17 @@ verifyOtp(otp:string){
 resetPassword(password:any){
   this.url="http://localhost:9191/reset/password";
   return this.http.post(this.url,password,{responseType:'text'});
+}
+public exportAsExcelFile(json:any[], excelFileName:string):void{
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+  const workbook: XLSX.WorkBook = {Sheets: { 'data':worksheet }, SheetNames:['data'] };
+  const excelBuffer: any= XLSX.write(workbook, { bookType:'xlsx', type:'array'});
+  this.saveAsExcelFile(excelBuffer, excelFileName);
+}
+EXCEL_TYPE="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+EXCEL_EXTENSION=".xlsx";
+private saveAsExcelFile(buffer:any, fileName:string):void{
+  const data: Blob = new Blob([buffer], {type:this.EXCEL_TYPE});
+  FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime()+ this.EXCEL_EXTENSION);
 }
 }
